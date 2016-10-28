@@ -1,0 +1,13 @@
+{
+  "name": "Homes51",
+  "short_name": "Homes51",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/media/logo.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#2fad6f",
+  "theme_color": "#2fad6f"
+}

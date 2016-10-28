@@ -1,0 +1,90 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+$text-color:        #000;
+$background-color:  #fff;
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #2fad6f,
+  secondary:  darken(#2fad6f,10%),
+  danger:     #ef5755,
+  dark:       #333333,
+  favorite:   #ff9c39,
+  light:      #f4f4f4,
+  white: (
+    base: #ffffff,
+    contrast: #2fad6f
+  ),
+  grey:       #f8f8f8,
+  calm:       #11C2F3,
+  balanced:   #33CD5E,
+  positive:   #387DF5,
+  royal:      #886AEA,
+  assertive:  #EF463A,
+  energized:  #FFC800,
+  stable:     #F8F8F8
+);
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+$ionicons-font-path: "../assets/fonts";
+@import "ionicons";
+
+// ios push show
+$item-ios-detail-push-show: false;
+
+// ios thumbnail
+$item-ios-thumbnail-size: 8rem;
+
+// card margin
+$card-ios-margin-left: 0px;
+$card-ios-margin-right: 0px;
+$card-md-margin-left: 0px;
+$card-md-margin-right: 0px;
+$card-wp-margin-left: 0px;
+$card-wp-margin-right: 0px;
+
+// background color
+$background-color: color($colors,grey);
+$list-background-color: color($colors,white);
+$toolbar-background: color($colors,white);
+$tabs-ios-background: color($colors,white);
+$tabs-md-background: color($colors,white);
+$tabs-wp-background: color($colors,white);
+
+// tabs
+$tabs-md-tab-padding: 4px 0 5px 0;
+$tabs-md-tab-padding-active: 3px 0 5px 0;
+$tabs-md-tab-text-margin: 2px 0;
+$tabs-md-tab-text-margin-active: 3px 0;

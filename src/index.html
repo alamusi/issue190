@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Homes51</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * data: blob: ; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' *">
+
+  <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
+  <link rel="manifest" href="assets/manifest.json">
+  <meta name="theme-color" content="#4e8ef7">
+
+  <!-- un-comment this code to enable service worker
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.log('Error', err));
+    }
+  </script>-->
+
+  <link href="build/main.css" rel="stylesheet">
+  <style>
+    #loader-wrapper {
+      display: block;
+      text-align: center;
+      height: 100vh;
+    }
+    #loader-wrapper div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    #loader-wrapper div progress {
+      /* Reset the default appearance */
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    #loader-wrapper div progress::-webkit-progress-bar {
+      background-color: #ffffff;
+      border-radius: 2px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    }
+    #loader-wrapper div progress[value]::-webkit-progress-value {
+      background-image:
+        -webkit-linear-gradient(-45deg, 
+                              transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                              rgba(0,0, 0, .1) 66%, transparent 66%),
+        -webkit-linear-gradient(top, 
+                              rgba(255, 255, 255, .25), 
+                              rgba(0, 0, 0, .25)),
+        -webkit-linear-gradient(left, #00bf5f, #00bf5f);
+      border-radius: 2px;
+      background-size: 35px 20px, 100% 100%, 100% 100%;
+    }
+  </style>
+  <script>
+    function loadProgress(n) {
+      var progress = document.getElementById('progress');
+      progress.value=n;
+      console.log('loading... \t'+n+'%');
+      if (progress.value >= progress.max) {
+        console.log('loading... completed!');
+        document.body.removeChild(document.getElementById('loader-wrapper'));
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="loader-wrapper">
+    <div>
+      <!--<img src="img/tradesblock-logo.png">-->
+      <p><progress id="progress" max="100">loading...</progress></p>
+    </div>
+  </div>
+  <!-- Ionic's root component and where the app will load -->
+  <ion-app></ion-app>
+
+  <!-- cordova.js required for cordova apps -->
+  <script src="cordova.js" onload="loadProgress(10)"></script>
+
+  <!-- include intl polyfill for safari -->
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en" onload="loadProgress(40)"></script>
+  <!-- The polyfills js is generated during the build process -->
+  <script src="build/polyfills.js" onload="loadProgress(60)"></script>
+
+  <!-- The bundle js is generated during the build process -->
+  <script src="build/main.js" onload="loadProgress(90)"></script>
+
+</body>
+</html>
